@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "908281251025",
+    "project_id": "tripama-92684",
+    "storage_bucket": "tripama-92684.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908281251025:android:7ee9f30191b436ae7c31f0",
+        "android_client_info": {
+          "package_name": "com.example.tripma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908281251025-qpqlg0gv0qddgt90m4v02klmkc85d990.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATIE9e6Loo3DHxxVbfIsjITpcnBgDrKew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908281251025-qpqlg0gv0qddgt90m4v02klmkc85d990.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
