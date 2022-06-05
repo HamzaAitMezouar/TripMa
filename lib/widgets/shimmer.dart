@@ -5,33 +5,33 @@ import 'package:shimmer/shimmer.dart';
 class Shimmerpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-        baseColor: Color.fromARGB(255, 219, 219, 219),
-        highlightColor: Color.fromARGB(255, 255, 255, 255),
-        child: ListView.builder(
-            itemCount: 4,
-            itemBuilder: (BuildContext context, int index) {
-              return GridView.count(
-                crossAxisCount: 2,
-                children: [
-                  Container(
-                    height: 200,
-                    width: 100,
-                  ),
-                  Container(
-                    height: 200,
-                    width: 100,
-                  ),
-                  Container(
-                    height: 200,
-                    width: 100,
-                  ),
-                  Container(
-                    height: 200,
-                    width: 100,
-                  )
-                ],
-              );
-            }));
+    return Scaffold(
+      body: Shimmer.fromColors(
+          baseColor: Color.fromARGB(255, 219, 219, 219),
+          highlightColor: Color.fromARGB(255, 255, 255, 255),
+          child: GridView.builder(
+            itemCount: 8,
+            itemBuilder: (context, index) {
+              return ContainerShim();
+            },
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5.0,
+              mainAxisSpacing: 5.0,
+            ),
+          )),
+    );
+  }
+
+  Widget ContainerShim() {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Container(
+        decoration: BoxDecoration(
+            color: Colors.red, borderRadius: BorderRadius.circular(18)),
+        height: 10,
+        width: 100,
+      ),
+    );
   }
 }

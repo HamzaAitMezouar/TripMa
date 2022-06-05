@@ -4,6 +4,7 @@ import 'package:tripma/services/FirebasePlaces.dart';
 import 'package:tripma/widgets/shimmer.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../model/PlacesModel.dart';
+import '../widgets/GridPage.dart';
 
 class home extends StatefulWidget {
   home({Key? key}) : super(key: key);
@@ -16,6 +17,18 @@ class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: const [
+            Text('Trip', style: TextStyle(fontSize: 18)),
+            Text(
+              'Ma',
+              style: TextStyle(fontSize: 10),
+            ),
+          ],
+        ),
+      ),
       body: StreamBuilder<List<Places>>(
           initialData: const <Places>[],
           stream: FirebasePlaces().getPlaces(),
@@ -26,23 +39,7 @@ class _homeState extends State<home> {
               return Shimmerpage();
             } else if (snapshots.hasData) {
               List<Places> places = snapshots.data!;
-              return StaggeredGridView(
-                  physics: const ScrollPhysics(
-                      parent: AlwaysScrollableScrollPhysics()),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 5.0,
-                    mainAxisSpacing: 5.0,
-                  ),
-                  itemCount: places.length,
-                  itemBuilder: (context, index) {
-                    return Card(
-                      child: Image.network(
-                        places[index].image,
-                        fit: BoxFit.scaleDown,
-                      ),
-                    );
-                  });
+              return GridPage(places: places);
             } else {
               return Shimmerpage();
             }
